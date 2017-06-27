@@ -4,7 +4,7 @@
   "description": "The php is accessable by the endpoint.php. Whenever the cron calls it, the other files provide api functionalities and the data.json file is created. Then we can work with it the way we want in the frontend. :)",
   "main": "index.js",
   "scripts": {
-    "dev": "live-server"
+    "dev": "concurrently \"stylus styl/style.styl --out style.css -w\" \"live-server\""
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,9 @@
   },
   "homepage": "https://github.com/The-L4U/the_l4u_homepage#readme",
   "devDependencies": {
-    "live-server": "^1.2.0"
+    "concurrently": "^3.5.0",
+    "live-server": "^1.2.0",
+    "stylus": "^0.54.5"
   },
   "dependencies": {
     "material-components-web": "^0.14.0"
