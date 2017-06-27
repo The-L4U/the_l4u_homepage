@@ -1,0 +1,20 @@
+{
+  "name": "the_l4u_homepage",
+  "version": "1.0.0",
+  "description": "The php is accessable by the endpoint.php. Whenever the cron calls it, the other files provide api functionalities and the data.json file is created. Then we can work with it the way we want in the frontend. :)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-L4U/the_l4u_homepage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/The-L4U/the_l4u_homepage/issues"
+  },
+  "homepage": "https://github.com/The-L4U/the_l4u_homepage#readme",
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  }
+}
