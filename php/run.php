@@ -16,6 +16,7 @@ $member = new \StdClass;
 $member->l4uid = 0;
 $member->l4urank = 0;
 $member->summonerid = 27730651;
+$member->accountid = 31647183;
 $member->task = "Papstsachen";
 $member->l4uname = "Der Papst";
 $members[$member->l4uid] = $member;
@@ -23,6 +24,7 @@ $member = new \StdClass;
 $member->l4uid = 1;
 $member->l4urank = 1;
 $member->summonerid = 32737299;
+$member->accountid = 36284446;
 $member->task = "Militär";
 $member->l4uname = "ELGDEM";
 $members[$member->l4uid] = $member;
@@ -30,6 +32,7 @@ $member = new \StdClass;
 $member->l4uid = 2;
 $member->l4urank = 2;
 $member->summonerid = 22725027;
+$member->accountid = 26683508;
 $member->task = "Nennen wir es Unterhaltungsbranche";
 $member->l4uname = "Der König";
 $members[$member->l4uid] = $member;
@@ -37,6 +40,7 @@ $member = new \StdClass;
 $member->l4uid = 3;
 $member->l4urank = 6;
 $member->summonerid = 35712937;
+$member->accountid = 39004654;
 $member->task = "planlos";
 $member->l4uname = "Der Planloser";
 $members[$member->l4uid] = $member;
@@ -44,6 +48,7 @@ $member = new \StdClass;
 $member->l4uid = 4;
 $member->l4urank = 3;
 $member->summonerid = 221626;
+$member->accountid = 227355;
 $member->task = "Minister für Zettelwirtschaft";
 $member->l4uname = "Mr. Zylinder";
 $members[$member->l4uid] = $member;
@@ -51,6 +56,7 @@ $member = new \StdClass;
 $member->l4uid = 5;
 $member->l4urank = 5;
 $member->summonerid = 37948471;
+$member->accountid = 40545318;
 $member->task = "Geheimdienst";
 $member->l4uname = "Der Fremde";
 $members[$member->l4uid] = $member;
@@ -58,6 +64,7 @@ $member = new \StdClass;
 $member->l4uid = 6;
 $member->l4urank = 4;
 $member->summonerid = 82608651;
+$member->accountid = 225883942;
 $member->task = "arbeitslos";
 $member->l4uname = "Der Verwandte";
 $members[$member->l4uid] = $member;
@@ -81,6 +88,7 @@ curl_setopt_array($curl, array(
 $result = curl_exec($curl);
 $object1 = json_decode($result);
 
+// first: request all basic data
 for ($i = 0; $i < sizeof($members); $i++) {
 
     $prop = $members[$i]->summonerid;
@@ -100,8 +108,38 @@ for ($i = 0; $i < sizeof($members); $i++) {
     $members[$i]->rankstats = new \StdClass;
     $members[$i]->rankstats = $object;
 
+}
+
+// second: make a short break^^
+set_time_limit(21);
+sleep(11);
+
+// third: search additional information (champion etc.)
+for ($i = 0; $i < sizeof($members); $i++) {
+
+    $prop = $members[$i]->summonerid;
+    $gamezero = "0";
+
+    curl_setopt_array($curl, array(
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => 'https://euw.api.riotgames.com/api/lol/EUW/v1.3/game/by-summoner/'.$members[$i]->summonerid.'/recent?api_key=RGAPI-19a18026-9713-4e4b-968d-159abeed82e1'
+    ));
+    $result = curl_exec($curl);
+    $object2 = json_decode($result);
+
+    // print_r($object2);
+
+    $members[$i]->matchobject = new \StdClass;
+    $members[$i]->matchobject->gameID = $object2->games[0]->gameId;
+    $members[$i]->matchobject->gameMode = $object2->games[0]->gameMode;
+    $members[$i]->matchobject->championId = $object2->games[0]->championId;
+    $members[$i]->matchobject->createDate = $object2->games[0]->createDate;
+    $members[$i]->matchobject->stats = new \StdClass;
+    $members[$i]->matchobject->stats = $object2->games[0]->stats;
+
     // DEBUG
-    // print_r($members[$i]);
+    print_r($members[$i]);
+
 }
 
 // 5. write and close file, done
