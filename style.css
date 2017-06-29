@@ -3,6 +3,11 @@
   margin: 0 auto;
   display: block;
 }
+@media screen and (max-width: 50rem) {
+  .wrapper {
+    width: 100%;
+  }
+}
 .member {
   margin-bottom: 4rem;
 }
