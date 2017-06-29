@@ -8,7 +8,7 @@ $curl = curl_init();
 // key (hidden): RGAPI-19a18026-9713-4e4b-968d-159abeed82e1
 
 // 2. initialize file
-$fp = fopen('datajson', 'w');
+$fp = fopen('data.json', 'w');
 
 // 3. define data for requests (summoner-ids) in the most beautiful way - by hand!
 $members = array();
@@ -137,10 +137,31 @@ for ($i = 0; $i < sizeof($members); $i++) {
     $members[$i]->matchobject->stats = new \StdClass;
     $members[$i]->matchobject->stats = $object2->games[0]->stats;
 
+}
+
+// fourth: another short break^^
+set_time_limit(21);
+sleep(11);
+
+// fifth: getting champion names
+for ($i = 0; $i < sizeof($members); $i++) {
+
+    curl_setopt_array($curl, array(
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => 'https://global.api.riotgames.com/api/lol/static-data/EUW/v1.2/champion/'.$members[$i]->matchobject->championId.'?api_key=RGAPI-19a18026-9713-4e4b-968d-159abeed82e1'
+    ));
+    $result = curl_exec($curl);
+    $object3 = json_decode($result);
+
+    $members[$i]->matchobject->championName = $object3->name;
+    $members[$i]->matchobject->championKey = $object3->key;
+    $members[$i]->matchobject->championTitle = $object3->title;
+
     // DEBUG
     print_r($members[$i]);
 
 }
+
 
 // 5. write and close file, done
 fwrite($fp, json_encode($members));
