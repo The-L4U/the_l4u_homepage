@@ -15,10 +15,17 @@ const getJSON = (url, callback) => {
     xhr.send()
 }
 
+// Return a string representing a members rank for given queue
 const getMemebersRank = (member, type) => {
     const rank = member.rankstats.find(rank => rank.queueType === type)
     if(!rank) return 'Unranked'
     return `${rank.tier} ${rank.rank}`
+}
+
+// Return a nicely formatted and human readable date
+const getDisplayDate = (memberDate) => {
+    const date = new Date(memberDate)
+    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
 }
 
 getJSON('php/data.json', (err, data) => {
@@ -38,9 +45,10 @@ getJSON('php/data.json', (err, data) => {
                     </section>
                     <section class="mdc-card__supporting-text">
                         <ul class="mdc-list">
-                            <li class="mdc-list-item">Ingame: ${member.summonerobject.name}</li>
+                            <li class="mdc-list-item">Ingame: <a class="member__history-link" href="http://matchhistory.euw.leagueoflegends.com/en/#match-history/EUW1/${member.accountid}">${member.summonerobject.name}</a></li>
                             <li class="mdc-list-item">Solor Rank: ${getMemebersRank(member, 'RANKED_SOLO_5x5')}</li>
                             <li class="mdc-list-item">Flex Rank: ${getMemebersRank(member, 'RANKED_FLEX_SR')}</li>
+                            <li class="mdc-list-item">Letztes Spiel: ${getDisplayDate(member.matchobject.createDate)}</li>
                         </ul>
                     </section>
                 </div>`
