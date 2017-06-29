@@ -44,6 +44,7 @@
         "gameID": 3238199491,
         "gameMode": "CLASSIC",
         "championId": 157,
+        "championName": "Yasuo",
         "createDate": 1498393104658,
         "stats": {
             "level": 17,
@@ -146,6 +147,7 @@
         "gameID": 3243874609,
         "gameMode": "ARAM",
         "championId": 267,
+        "championName": "Nami",
         "createDate": 1498744996643,
         "stats": {
             "level": 17,
@@ -239,6 +241,7 @@
         "gameID": 3233562190,
         "gameMode": "ARAM",
         "championId": 432,
+        "championName": "Bard",
         "createDate": 1498079112204,
         "stats": {
             "level": 14,
@@ -303,6 +306,7 @@
         "gameID": 3191970703,
         "gameMode": "CLASSIC",
         "championId": 51,
+        "championName": "Caitlyn",
         "createDate": 1495386144710,
         "stats": {
             "level": 9,
@@ -381,6 +385,7 @@
         "gameID": 3148361782,
         "gameMode": "ARAM",
         "championId": 17,
+        "championName": "Teemo",
         "createDate": 1492540194222,
         "stats": {
             "level": 18,
@@ -475,6 +480,7 @@
         "gameID": 3232306320,
         "gameMode": "CLASSIC",
         "championId": 54,
+        "championName": "Malphite",
         "createDate": 1497995061167,
         "stats": {
             "level": 7,
@@ -567,6 +573,7 @@
         "gameID": 3238199491,
         "gameMode": "CLASSIC",
         "championId": 64,
+        "championName": "LeeSin",
         "createDate": 1498393104658,
         "stats": {
             "level": 18,
