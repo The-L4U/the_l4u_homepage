@@ -1,6 +1,23 @@
+.wrapper {
+  width: 50rem;
+  margin: 0 auto;
+  display: block;
+}
+.member {
+  margin-bottom: 4rem;
+}
 .member .mdc-card__media {
-  background-image: url("pretty.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 90px;
+}
+.member .member__summoner-icon {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+  float: left;
+  margin-top: 8px;
+  border-radius: 50%;
+  margin-right: 1rem;
 }

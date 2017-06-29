@@ -10,19 +10,16 @@
 </head>
 
 <body>
-    <h2 class="mdc-typography--display2">The L4U</h2>
 
-    <div class="mdc-card member">
-        <section class="mdc-card__media"></section>
-        <section class="mdc-card__primary">
-            <h1 class="mdc-card__title mdc-card__title--large">L4uName</h1>
-            <h2 class="mdc-card__subtitle">L4u task</h2>
-        </section>
-    </div>
+    <main class="wrapper">
 
-    <div id="membersContainer">
-    </div>
+        <h2 class="mdc-typography--display2">The L4U</h2>
 
+
+        <div id="membersContainer">
+        </div>
+
+    </main>
 
     <script>
 
@@ -47,10 +44,11 @@
             data
                 .sort((a,b) => a.l4urank > b.l4urank)
                 .forEach(member => {
-                    inner += ` 
+                    inner += `
                         <div class="mdc-card member">
                             <section class="mdc-card__media"></section>
                             <section class="mdc-card__primary">
+                                <div class="member__summoner-icon" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/7.13.1/img/profileicon/${member.summonerobject.profileIconId}.png )"></div>
                                 <h1 class="mdc-card__title mdc-card__title--large">${member.l4uname}</h1>
                                 <h2 class="mdc-card__subtitle">${member.task}</h2>
                             </section>
