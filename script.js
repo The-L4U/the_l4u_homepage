@@ -15,6 +15,12 @@ const getJSON = (url, callback) => {
     xhr.send()
 }
 
+const getMemebersRank = (member, type) => {
+    const rank = member.rankstats.find(rank => rank.queueType === type)
+    if(!rank) return 'Unranked'
+    return `${rank.tier} ${rank.rank}`
+}
+
 getJSON('php/data.json', (err, data) => {
     if(err) return console.error(data)
     let inner = ''
@@ -30,7 +36,13 @@ getJSON('php/data.json', (err, data) => {
                             <h2 class="mdc-card__subtitle">${member.task}</h2>
                         </section>
                     </section>
-
+                    <section class="mdc-card__supporting-text">
+                        <ul class="mdc-list">
+                            <li class="mdc-list-item">Ingame: ${member.summonerobject.name}</li>
+                            <li class="mdc-list-item">Solor Rank: ${getMemebersRank(member, 'RANKED_SOLO_5x5')}</li>
+                            <li class="mdc-list-item">Flex Rank: ${getMemebersRank(member, 'RANKED_FLEX_SR')}</li>
+                        </ul>
+                    </section>
                 </div>`
         })
     document.getElementById('membersContainer').innerHTML = inner
