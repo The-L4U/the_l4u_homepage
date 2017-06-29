@@ -1,3 +1,8 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
 .wrapper {
   width: 50rem;
   margin: 0 auto;
@@ -35,4 +40,15 @@
 .member .member__history-link {
   margin-left: 5px;
   color: #2957a0;
+}
+.footer {
+  background-color: #071121;
+  width: 100%;
+  padding: 1rem;
+  color: #fff;
+  box-sizing: border-box;
+}
+.footer a,
+.footer a:visited {
+  color: #fff;
 }
