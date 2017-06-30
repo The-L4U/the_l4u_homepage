@@ -70,10 +70,17 @@ getJSON('php/data.json', (err, data) => {
     const tick = () => {
 
         //Move existing baloons
-        baloons.forEach(baloonId => {
+        const remove = []
+        baloons.forEach((baloonId) => {
             const baloon = document.getElementById(baloonId)
             const bottom = parseInt( window.getComputedStyle(baloon).getPropertyValue("bottom") )
             baloon.style.bottom = (bottom + 3) + 'px'
+            if(bottom > window.innerHeight) {
+                remove.push(baloonId)
+            }
+        })
+        remove.forEach(baloonId => {
+            baloons = baloons.filter(baloon => baloon !== baloonId)
         })
     }
     const spawn = () => {
