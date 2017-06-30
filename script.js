@@ -46,7 +46,7 @@ getJSON('php/data.json', (err, data) => {
                     <section class="mdc-card__supporting-text">
                         <ul class="mdc-list">
                             <li class="mdc-list-item">Ingame: <a class="member__history-link" href="http://matchhistory.euw.leagueoflegends.com/en/#match-history/EUW1/${member.accountid}">${member.summonerobject.name}</a></li>
-                            <li class="mdc-list-item">Solor Rank: ${getMemebersRank(member, 'RANKED_SOLO_5x5')}</li>
+                            <li class="mdc-list-item">Solo Rank: ${getMemebersRank(member, 'RANKED_SOLO_5x5')}</li>
                             <li class="mdc-list-item">Flex Rank: ${getMemebersRank(member, 'RANKED_FLEX_SR')}</li>
                             <li class="mdc-list-item">Letztes Spiel: ${getDisplayDate(member.matchobject.createDate)}</li>
                         </ul>
