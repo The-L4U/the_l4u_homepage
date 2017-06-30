@@ -17,9 +17,11 @@ $member->l4uid = 0;
 $member->l4urank = 0;
 $member->summonerid = 27730651;
 $member->accountid = 31647183;
+$member->emoji = "Der_Papst.png";
 $member->task = "Papstsachen";
 $member->l4uname = "Der Papst";
 $members[$member->l4uid] = $member;
+
 $member = new \StdClass;
 $member->l4uid = 1;
 $member->l4urank = 1;
@@ -27,7 +29,9 @@ $member->summonerid = 32737299;
 $member->accountid = 36284446;
 $member->task = "Militär";
 $member->l4uname = "ELGDEM";
+$member->emoji = "ELGDEM.png";
 $members[$member->l4uid] = $member;
+
 $member = new \StdClass;
 $member->l4uid = 2;
 $member->l4urank = 2;
@@ -35,7 +39,9 @@ $member->summonerid = 22725027;
 $member->accountid = 26683508;
 $member->task = "Nennen wir es Unterhaltungsbranche";
 $member->l4uname = "Der König";
+$member->emoji = "Der_König.png";
 $members[$member->l4uid] = $member;
+
 $member = new \StdClass;
 $member->l4uid = 3;
 $member->l4urank = 6;
@@ -43,7 +49,9 @@ $member->summonerid = 35712937;
 $member->accountid = 39004654;
 $member->task = "planlos";
 $member->l4uname = "Der Planloser";
+$member->emoji = "Der_Planlose.png";
 $members[$member->l4uid] = $member;
+
 $member = new \StdClass;
 $member->l4uid = 4;
 $member->l4urank = 3;
@@ -51,7 +59,9 @@ $member->summonerid = 221626;
 $member->accountid = 227355;
 $member->task = "Minister für Zettelwirtschaft";
 $member->l4uname = "Mr. Zylinder";
+$member->emoji = "Mr_Zylinder.png";
 $members[$member->l4uid] = $member;
+
 $member = new \StdClass;
 $member->l4uid = 5;
 $member->l4urank = 5;
@@ -59,7 +69,9 @@ $member->summonerid = 37948471;
 $member->accountid = 40545318;
 $member->task = "Geheimdienst";
 $member->l4uname = "Der Fremde";
+$member->emoji = "Der_Fremde.png";
 $members[$member->l4uid] = $member;
+
 $member = new \StdClass;
 $member->l4uid = 6;
 $member->l4urank = 4;
@@ -67,6 +79,7 @@ $member->summonerid = 82608651;
 $member->accountid = 225883942;
 $member->task = "arbeitslos";
 $member->l4uname = "Der Verwandte";
+$member->emoji = "Der_Verwandte.png";
 $members[$member->l4uid] = $member;
 
 // 4. extract data
