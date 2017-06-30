@@ -35,7 +35,7 @@ getJSON('php/data.json', (err, data) => {
         .sort((a,b) => a.l4urank > b.l4urank)
         .forEach(member => {
             inner += `
-                <div class="mdc-card member">
+                <div class="mdc-card member" id="${member.l4uid === 0 ? 'birthday' : ''}">
                     <section class="mdc-card__media" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${member.matchobject.championName}_0.jpg)">
                         <section class="mdc-card__primary member__title">
                             <div class="member__summoner-icon" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/${apiVersion}/img/profileicon/${member.summonerobject.profileIconId}.png )"></div>
@@ -54,4 +54,39 @@ getJSON('php/data.json', (err, data) => {
                 </div>`
         })
     document.getElementById('membersContainer').innerHTML = inner
+
+    //Do the birthday things.
+    let spawnBaloon = false
+    const baloons = []
+    document.querySelector('#birthday').addEventListener('mouseenter', event => {
+        console.log('mouse entered birthday card')
+        spawnBaloon = true
+    })
+    document.querySelector('#birthday').addEventListener('mouseleave', event => {
+        console.log('mouse left birthday card')
+        spawnBaloon = false
+    })
+
+    const tick = () => {
+
+        //Move existing baloons
+        baloons.forEach(baloonId => {
+            const baloon = document.getElementById(baloonId)
+            const bottom = parseInt( window.getComputedStyle(baloon).getPropertyValue("bottom") )
+            baloon.style.bottom = (bottom + 3) + 'px'
+        })
+    }
+    const spawn = () => {
+        //Check to spawn new baloons
+        if(!spawnBaloon) return
+        const randomNumber = Math.floor(Math.random() * 7) +1
+        const container = document.getElementById('baloonContainer')
+        const left = Math.floor(Math.random() * window.innerWidth)
+        const baloonId = `baloon${baloons.length}`
+        container.innerHTML += `<img id="${baloonId}" class="baloon" src="img/baloons/b${randomNumber}.png" style="left:${left}px" />`
+        baloons.push(baloonId)
+    }
+    let tickInterval = window.setInterval(tick, 20)
+    let spawnInterval = window.setInterval(spawn, 100)
+
 })
