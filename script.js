@@ -88,7 +88,7 @@ getJSON('php/data.json', (err, data) => {
         if(!spawnBaloon) return
         const randomNumber = Math.floor(Math.random() * 7) +1
         const container = document.getElementById('baloonContainer')
-        const left = Math.floor(Math.random() * window.innerWidth)
+        const left = Math.floor(Math.random() * (window.innerWidth - 100))
         const baloonId = `baloon${baloons.length}`
         container.innerHTML += `<img id="${baloonId}" class="baloon" src="img/baloons/b${randomNumber}.png" style="left:${left}px" />`
         baloons.push(baloonId)
