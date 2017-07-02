@@ -58,6 +58,7 @@ getJSON('php/data.json', (err, data) => {
     //Do the birthday things.
     let spawnBaloon = false
     let baloons = []
+    let baloonsCounter = 0
     document.querySelector('#birthday').addEventListener('mouseenter', event => {
         console.log('mouse entered birthday card')
         spawnBaloon = true
@@ -89,7 +90,8 @@ getJSON('php/data.json', (err, data) => {
         const randomNumber = Math.floor(Math.random() * 7) +1
         const container = document.getElementById('baloonContainer')
         const left = Math.floor(Math.random() * (window.innerWidth - 100))
-        const baloonId = `baloon${baloons.length}`
+        const baloonId = `baloon${baloonsCounter}`
+        baloonsCounter += 1
         container.innerHTML += `<img id="${baloonId}" class="baloon" src="img/baloons/b${randomNumber}.png" style="left:${left}px" />`
         baloons.push(baloonId)
     }
