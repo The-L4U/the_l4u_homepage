@@ -57,7 +57,7 @@ getJSON('php/data.json', (err, data) => {
 
     //Do the birthday things.
     let spawnBaloon = false
-    const baloons = []
+    let baloons = []
     document.querySelector('#birthday').addEventListener('mouseenter', event => {
         console.log('mouse entered birthday card')
         spawnBaloon = true
