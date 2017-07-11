@@ -55,17 +55,16 @@ abstract class API
 
     public function processAPI() {
         $localtest = "http://127.0.0.1/the_l4u/run.php";
-        $real = "http://bjarnewitten.de/7hhfo3i74rh092378rzw9uerh34t53zuifhire/mensash/model/controller.php";
+        $real = "http://l4u.info/php/run.php";
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $localtest);
+        curl_setopt($ch, CURLOPT_URL, $real);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $output = curl_exec($ch);
         curl_close($ch);
         echo "<pre>$output</pre>";
-        // return exec("php /home/www/bjarnewitten.de/7hhfo3i74rh092378rzw9uerh34t53zuifhire/mensash/model/testpoint.php");
     }
 
     private function _response($data, $status = 200) {
