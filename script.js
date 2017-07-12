@@ -35,7 +35,7 @@ getJSON('php/data.json', (err, data) => {
         .sort((a,b) => a.l4urank > b.l4urank)
         .forEach(member => {
             inner += `
-                <div class="mdc-card member" id="${member.l4uid === 0 ? 'birthday' : ''}">
+                <div class="mdc-card member">
                     <section class="mdc-card__media" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${member.matchobject.championName}_0.jpg)">
                         <section class="mdc-card__primary member__title">
                             <div class="member__summoner-icon" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/${apiVersion}/img/profileicon/${member.summonerobject.profileIconId}.png )"></div>
@@ -56,7 +56,7 @@ getJSON('php/data.json', (err, data) => {
     document.getElementById('membersContainer').innerHTML = inner
 
     //Do the birthday things.
-    let spawnBaloon = false
+/*    let spawnBaloon = false
     let baloons = []
     let baloonsCounter = 0
     document.querySelector('#birthday').addEventListener('mouseenter', event => {
@@ -97,5 +97,5 @@ getJSON('php/data.json', (err, data) => {
     }
     let tickInterval = window.setInterval(tick, 20)
     let spawnInterval = window.setInterval(spawn, 100)
-
+*/
 })
