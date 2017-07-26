@@ -95,7 +95,7 @@ for ($j = 0; $j < sizeof($members); $j++) {
 
 curl_setopt_array($curl, array(
     CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'https://euw.api.riotgames.com/api/lol/EUW/v1.4/summoner/'.$ids.'?api_key=RGAPI-19a18026-9713-4e4b-968d-159abeed82e1'
+    CURLOPT_URL => 'https://euw.api.riotgames.com/api/lol/EUW/v1.4/summoner/'.$ids.'?api_key=<<<mykey>>>'
     // CURLOPT_URL example: https://euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/RiotSchmick?api_key=<<<mykey>>>
 ));
 $result = curl_exec($curl);
@@ -113,7 +113,7 @@ for ($i = 0; $i < sizeof($members); $i++) {
 
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'https://euw1.api.riotgames.com/lol/league/v3/positions/by-summoner/'.$members[$i]->summonerid.'?api_key=RGAPI-19a18026-9713-4e4b-968d-159abeed82e1'
+        CURLOPT_URL => 'https://euw1.api.riotgames.com/lol/league/v3/positions/by-summoner/'.$members[$i]->summonerid.'?api_key=<<<mykey>>>'
     ));
     $result = curl_exec($curl);
     $object = json_decode($result);
@@ -135,7 +135,7 @@ for ($i = 0; $i < sizeof($members); $i++) {
 
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'https://euw.api.riotgames.com/api/lol/EUW/v1.3/game/by-summoner/'.$members[$i]->summonerid.'/recent?api_key=RGAPI-19a18026-9713-4e4b-968d-159abeed82e1'
+        CURLOPT_URL => 'https://euw.api.riotgames.com/api/lol/EUW/v1.3/game/by-summoner/'.$members[$i]->summonerid.'/recent?api_key=<<<mykey>>>'
     ));
     $result = curl_exec($curl);
     $object2 = json_decode($result);
@@ -161,7 +161,7 @@ for ($i = 0; $i < sizeof($members); $i++) {
 
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'https://global.api.riotgames.com/api/lol/static-data/EUW/v1.2/champion/'.$members[$i]->matchobject->championId.'?api_key=RGAPI-19a18026-9713-4e4b-968d-159abeed82e1'
+        CURLOPT_URL => 'https://global.api.riotgames.com/api/lol/static-data/EUW/v1.2/champion/'.$members[$i]->matchobject->championId.'?api_key=<<<mykey>>>'
     ));
     $result = curl_exec($curl);
     $object3 = json_decode($result);
